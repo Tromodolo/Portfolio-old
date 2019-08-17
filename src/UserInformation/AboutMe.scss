@@ -1,0 +1,46 @@
+#me{
+    text-align: center;
+
+    text-shadow: 1px 2px 5px #202020;
+
+    color: #f0f0f0;
+
+    h1{
+        font-size: 2.4rem;
+    }
+    h2{
+        font-size: 2rem;
+    }
+    .description{
+        color: #aaaaaa;
+        font-size: 1.3rem;
+    }
+
+    .socialLinks{
+        margin-top: 15px;
+
+        display: flex;
+        flex-direction: row;
+
+        justify-content: space-evenly;
+
+        .socialLink{
+            display: inline-block;
+
+            height: 38px;
+            width: 38px;
+
+            background: #dadada;
+            color: #243b55;
+
+            border-radius: 100%;
+
+            svg{
+                margin: 20%;
+
+                width: 60%;
+                height: 60%;
+            }
+        }
+    }
+}
