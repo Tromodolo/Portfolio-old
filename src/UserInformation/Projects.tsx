@@ -12,7 +12,7 @@ export const Projects: React.FC = () => {
                 <img src={Frog} alt="Tro.moe"/>
                 <div className="data">
                     <header>
-                        <a href="https://tro.moe/">Tro.moe</a>
+                        <a href="https://github.com/Tromodolo/Portfolio">Tro.moe</a>
                         <span className="badge badge-ts">Typescript</span>
                         <span className="badge badge-react">React</span>
                     </header>
