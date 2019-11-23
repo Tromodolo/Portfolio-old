@@ -1,0 +1,121 @@
+@import "../variables";
+
+.projectList{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+
+    padding: 30px;
+}
+
+.project{
+	min-width: 280px;
+	max-width: 80vw;
+	margin: 15px;
+
+	display: flex;
+
+	flex-direction: row;
+	justify-content: flex-start;
+	align-items: center;
+
+	background: rgba($dark, 0.6);
+	padding: 15px;
+	border-radius: 20px;
+
+	box-shadow: 0px 1px 3px $dark-shadow;
+
+	@media screen and (max-width: 768px) {
+		box-shadow: 0px 2px 4px $dark-shadow;
+	}
+
+	&:hover{
+		box-shadow: 0px 2px 4px $dark-shadow;
+		position: relative;
+		top: -2px;
+	}
+
+	img{
+		height: 60px;
+		width: 60px;
+
+		margin: 10px;
+		margin-right: 25px;
+
+		border-radius: 100%;
+	}
+}
+
+ .data{
+	header{
+		display: flex;
+		flex-direction: row;
+		justify-content: flex-start;
+		align-items: center;
+
+		font-size: 16px;
+		line-height: 1.5;
+
+		a{
+			font-size: 22px;
+			
+			user-select: none;
+			cursor: pointer;
+
+			color: $light;
+			text-decoration: none;
+
+			&:hover{
+				color: $active;
+			}
+		}
+	}
+	p{
+		color: rgba($light, 0.7);
+		max-width: 300px;
+
+		a{
+			color: $light;
+			text-decoration: none;
+
+			&:hover{
+				color: $active;
+			}
+		}
+	}
+}
+
+.badge{
+	display: inline-block;
+
+    font-size: 0.8rem;
+    padding: 5px;
+    border-radius: 10px;
+    margin-left: 7px;
+
+	font-weight: bold;
+
+	cursor: pointer;
+	text-decoration: none;
+
+	&:hover{
+		box-shadow: 0px 2px 2px $dark-shadow;
+		position: relative;
+		top: -2px;
+	}
+
+    &.badge-ts{
+        background: $typescript;
+		color: $typescript-text;
+    }
+
+    &.badge-react{
+        background: $react;
+        color: $react-text;
+    }
+
+	&.badge-eris {
+		background: $eris;
+        color: $eris-text;
+	}
+}

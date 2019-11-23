@@ -6,8 +6,8 @@ import honk from "./honk.png";
 const App: React.FC = () => {
 	return (
 		<div className="App">
-    		<UserInformation />
-            <img src={honk} className="chen" alt=""/>
+			<UserInformation />
+			<img src={honk} className="chen" alt=""/>
 		</div>
 	);
 };

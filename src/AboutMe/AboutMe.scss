@@ -1,0 +1,54 @@
+@import "../variables";
+
+#me{
+    text-align: center;
+
+    text-shadow: 1px 2px 5px $dark-shadow;
+
+    color: $light;
+
+    h1{
+        font-size: 2.4rem;
+    }
+    h2{
+        font-size: 2rem;
+    }
+    .description{
+        color: $gray;
+        font-size: 20px;
+		line-height: 1.5;
+    }
+
+    .socialLinks{
+        margin-top: 15px;
+
+        display: flex;
+        flex-direction: row;
+
+        justify-content: space-evenly;
+
+        .socialLink{
+            display: inline-block;
+
+            height: 38px;
+            width: 38px;
+
+            background: $gray;
+            color: $dark;
+
+            border-radius: 100%;
+
+            svg{
+                margin: 20%;
+
+                width: 60%;
+                height: 60%;
+            }
+
+			&:hover {
+				/* color: $light; */
+				background: $active;
+			}
+        }
+    }
+}

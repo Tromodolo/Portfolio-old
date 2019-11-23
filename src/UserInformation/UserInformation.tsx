@@ -1,39 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import "./UserInformation.scss";
-import { InformationData } from './InformationData';
+import { InformationData } from '../InformationData';
 
-export class UserInformation extends React.Component<{}, {shownData: "aboutMe" | "projects"}> {
-    constructor(props: any){
-        super(props);
+type Page = "about" | "projects";
 
-        this.state = {
-            shownData: "aboutMe",
-        };
+export const UserInformation: React.FC  = () => {
+	const [page, setPage] = useState<Page>("about");
 
-        this.navPress = this.navPress.bind(this);
-    }
+	const pages: Array<{name: Page, text: string}> = [{
+		name: "about",
+		text: "Me",
+	},
+	{
+		name: "projects",
+		text: "Projects",
+	}];
 
-    navPress(page: "aboutMe" | "projects"){
-        this.setState({
-            shownData: page,
-        })
-    }
+	const renderPages = () => {
+		return pages.map((x) => {
+			return (
+				<li key={x.name}>
+					<a onClick={() => setPage(x.name)} href={"#" + x.name} className={page === x.name ? "active" : ""} >{x.text}</a>
+				</li>
+			);
+		});
+	};
 
-    render(){
-        return (
-            <div className="userInfo">
-                <div className="navButtons">
-                    <ul>
-                        <li>
-                            <a onClick={(e) => this.navPress("aboutMe")} href="#me" className={this.state.shownData === "aboutMe" ? "active" : ""} >Me</a>
-                        </li>
-                        <li>
-                            <a onClick={(e) => this.navPress("projects")} href="#projects" className={this.state.shownData === "projects" ? "active" : ""} >Projects</a>
-                        </li>
-                    </ul>
-                </div>
-                <InformationData page={this.state.shownData} />
-            </div>
-        );
-    }
-}
+	return (
+		<div className="userInfo">
+			<div className="navButtons">
+				<ul>
+					{renderPages()}
+				</ul>
+			</div>
+			<InformationData page={page} />
+		</div>
+	);
+};
