@@ -20,7 +20,7 @@ export class CanvasEffect extends React.Component {
 	velX = 0.65;
 	velY = 0.75;
 	dotSize = 8;
-	dotRadius = 70;
+	dotRadius = 50;
 
 	constructor(props: any){
 		super(props);
@@ -87,7 +87,7 @@ export class CanvasEffect extends React.Component {
 					const radius = Math.sqrt(xPow + yPow);
 					if (radius <= this.dotRadius){
 						this.ctx.fillStyle = "";
-						this.ctx.strokeStyle = `rgba(195, 203, 213, ${radius / this.dotRadius})`;
+						this.ctx.strokeStyle = `rgba(195, 203, 213, ${((this.dotRadius - radius) / this.dotRadius)})`;
 						this.ctx.lineWidth = 2;
 
 						this.ctx.beginPath();
