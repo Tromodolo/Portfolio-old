@@ -45,12 +45,12 @@ export class CanvasEffect extends React.Component<{}, CanvasState> {
 		if (this.canvas){
 			this.ctx = this.canvas.getContext("2d");
 
-			for (let i = 0; i < 40; i++){
+			for (let i = 0; i < 50; i++){
 				this.dotPositions.push({
 					x: Math.floor(Math.random() * this.canvas.width),
 					y: Math.floor(Math.random() * this.canvas.height),
-					velX: Math.random() > 0.50 ? this.velX : 0 - this.velX,
-					velY: Math.random() > 0.50 ? this.velY : 0 - this.velY,
+					velX: Math.random() > 0.50 ? Math.random() * this.velX : 0 - (Math.random() * this.velX),
+					velY: Math.random() > 0.50 ? Math.random() * this.velY : 0 - (Math.random() * this.velY),
 				});
 			}
 
@@ -102,16 +102,16 @@ export class CanvasEffect extends React.Component<{}, CanvasState> {
 				}
 				else if (dot.x - this.dotSize <= 0){
 					dot.x = 0 + this.dotSize;
-					dot.velX = this.velX;
+					dot.velX = 0 - this.velX;
 				}
 
 				if (dot.y + this.dotSize >= this.canvas.height){
 					dot.y = this.canvas.height - this.dotSize;
-					dot.velY = 0 - this.velY;
+					dot.velY = 0 - dot.velY;
 				}
 				else if (dot.y - this.dotSize <= 0){
 					dot.y = 0 + this.dotSize;
-					dot.velY = this.velY;
+					dot.velY = 0 - dot.velY;
 				}
 
 				this.ctx.fillStyle = "rgba(195, 203, 213, 0)";
