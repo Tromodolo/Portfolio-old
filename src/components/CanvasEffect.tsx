@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 
 const Canvas = styled("canvas")`
 	position: absolute;
-	width: 100vw;
+	min-width: 100vw;
 	height: 200px;
 
 	top: 0px;
@@ -11,27 +11,68 @@ const Canvas = styled("canvas")`
 	right: 0px;
 `;
 
-export class CanvasEffect extends React.Component {
+interface CanvasState {
+	canvasHeight: number;
+	canvasWidth: number;
+}
+
+export class CanvasEffect extends React.Component<{}, CanvasState> {
 	canvas?: HTMLCanvasElement | null;
 	ctx?: CanvasRenderingContext2D | null;
 
 	dotPositions: Array<{x: number, y: number, velX: number, velY: number}>;
 
-	velX = 0.65;
-	velY = 0.75;
-	dotSize = 8;
-	dotRadius = 50;
+	velX = 0.75;
+	velY = 0.85;
+	dotSize = 4;
+	dotRadius = 60;
+	update?: any;
 
 	constructor(props: any){
 		super(props);
 
 		this.dotPositions = [];
 		this.drawFrame = this.drawFrame.bind(this);
+		this.handleResize = this.handleResize.bind(this);
+
+		this.state = {
+			canvasHeight: 200,
+			canvasWidth: window.innerWidth,
+		};
 	}
 
 	componentDidMount() {
 		if (this.canvas){
 			this.ctx = this.canvas.getContext("2d");
+
+			for (let i = 0; i < 40; i++){
+				this.dotPositions.push({
+					x: Math.floor(Math.random() * this.canvas.width),
+					y: Math.floor(Math.random() * this.canvas.height),
+					velX: Math.random() > 0.50 ? this.velX : 0 - this.velX,
+					velY: Math.random() > 0.50 ? this.velY : 0 - this.velY,
+				});
+			}
+
+			this.update = setInterval(this.drawFrame, 16);
+			window.addEventListener('resize', () => this.handleResize());
+		}
+	}
+
+	handleResize(){
+		this.setState({
+			canvasHeight: 200,
+			canvasWidth: window.innerWidth,
+		});
+		this.clearCanvas();
+	}
+
+	clearCanvas(){
+		if (this.ctx && this.canvas){
+			this.ctx.clearRect(0, 0, this.canvas.width ?? 100, this.canvas.height ?? 100);
+
+			clearInterval(this.update);
+			this.dotPositions = [];
 
 			for (let i = 0; i < 30; i++){
 				this.dotPositions.push({
@@ -42,7 +83,7 @@ export class CanvasEffect extends React.Component {
 				});
 			}
 
-			setInterval(this.drawFrame, 16);
+			this.update = setInterval(this.drawFrame, 16);
 		}
 	}
 
@@ -73,8 +114,8 @@ export class CanvasEffect extends React.Component {
 					dot.velY = this.velY;
 				}
 
-				this.ctx.fillStyle = "rgb(195, 203, 213)";
-				this.ctx.strokeStyle = "";
+				this.ctx.fillStyle = "rgba(195, 203, 213, 0)";
+				this.ctx.strokeStyle = "rgba(0, 0, 0, 0)";
 
 				this.ctx.beginPath();
 				this.ctx.arc(dot.x, dot.y, this.dotSize / 2, 0, 2 * Math.PI, false);
@@ -86,7 +127,7 @@ export class CanvasEffect extends React.Component {
 					const yPow = Math.pow(Math.abs(dot.y - otherDot.y), 2);
 					const radius = Math.sqrt(xPow + yPow);
 					if (radius <= this.dotRadius){
-						this.ctx.fillStyle = "";
+						this.ctx.fillStyle = "rgba(0, 0, 0, 0)";
 						this.ctx.strokeStyle = `rgba(195, 203, 213, ${((this.dotRadius - radius) / this.dotRadius)})`;
 						this.ctx.lineWidth = 2;
 
@@ -102,7 +143,7 @@ export class CanvasEffect extends React.Component {
 
 	render(){
 		return (
-			<Canvas ref={(canvas) => this.canvas = canvas} height={200} width={window.innerWidth} />
+			<Canvas ref={(canvas) => this.canvas = canvas} height={this.state.canvasHeight} width={this.state.canvasWidth} />
 		);
 	}
-};
+}
