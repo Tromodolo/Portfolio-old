@@ -45,7 +45,7 @@ export class CanvasEffect extends React.Component<{}, CanvasState> {
 		if (this.canvas){
 			this.ctx = this.canvas.getContext("2d");
 
-			for (let i = 0; i < 50; i++){
+			for (let i = 0; i < this.state.canvasWidth / 18; i++){
 				this.dotPositions.push({
 					x: Math.floor(Math.random() * this.canvas.width),
 					y: Math.floor(Math.random() * this.canvas.height),
@@ -74,12 +74,12 @@ export class CanvasEffect extends React.Component<{}, CanvasState> {
 			clearInterval(this.update);
 			this.dotPositions = [];
 
-			for (let i = 0; i < 30; i++){
+			for (let i = 0; i < this.state.canvasWidth / 18; i++){
 				this.dotPositions.push({
 					x: Math.floor(Math.random() * this.canvas.width),
 					y: Math.floor(Math.random() * this.canvas.height),
-					velX: Math.random() > 0.50 ? this.velX : 0 - this.velX,
-					velY: Math.random() > 0.50 ? this.velY : 0 - this.velY,
+					velX: Math.random() > 0.50 ? Math.random() * this.velX : 0 - (Math.random() * this.velX),
+					velY: Math.random() > 0.50 ? Math.random() * this.velY : 0 - (Math.random() * this.velY),
 				});
 			}
 
