@@ -7,7 +7,7 @@ type Page = "about" | "projects";
 
 const UserInfo = styled("div")`
 	height: 100%;
-    width: 100%;
+    width: 100vw;
 	padding-top: 200px;
 
     display: flex;
