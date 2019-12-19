@@ -22,8 +22,8 @@ export class CanvasEffect extends React.Component<{}, CanvasState> {
 
 	dotPositions: Array<{x: number, y: number, velX: number, velY: number}>;
 
-	velX = 0.75;
-	velY = 0.85;
+	velX = 1;
+	velY = 1;
 	dotSize = 4;
 	dotRadius = 60;
 	update?: any;
@@ -102,7 +102,7 @@ export class CanvasEffect extends React.Component<{}, CanvasState> {
 				}
 				else if (dot.x - this.dotSize <= 0){
 					dot.x = 0 + this.dotSize;
-					dot.velX = 0 - this.velX;
+					dot.velX = Math.abs(this.velX);
 				}
 
 				if (dot.y + this.dotSize >= this.canvas.height){
@@ -111,7 +111,7 @@ export class CanvasEffect extends React.Component<{}, CanvasState> {
 				}
 				else if (dot.y - this.dotSize <= 0){
 					dot.y = 0 + this.dotSize;
-					dot.velY = 0 - dot.velY;
+					dot.velY = Math.abs(dot.velY);
 				}
 
 				this.ctx.fillStyle = "rgba(195, 203, 213, 0)";
