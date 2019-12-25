@@ -37,6 +37,8 @@ const Me = styled("img")`
 
 	border-radius: 100%;
 
+	box-shadow: 1px 2px 5px ${DarkShadow};
+
 	@media screen and (max-width: 768px){
 		width: 100px;
 		height: 100px;
