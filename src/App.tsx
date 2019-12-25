@@ -8,7 +8,7 @@ import { CanvasEffect } from 'components/CanvasEffect';
 // linear-gradient(45deg, rgba($dark-gradient, 0.65), rgba($dark, 0.70)),
 const AppContent = styled("div")`
 	width: 100vw;
-	height: 100vh;
+	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	background linear-gradient(45deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0)), url("assets/wallhaven-j5loe5.jpg");
@@ -23,6 +23,13 @@ const Chen = styled("img")`
     bottom: 0;
     left: 35%;
 	cursor: pointer;
+
+	@media screen and (max-width: 768px){
+		transform: rotate(180deg);
+
+		top: 0px;
+		bottom: initial;
+	}
 `;
 
 const App: React.FC = () => {

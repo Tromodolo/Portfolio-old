@@ -3,7 +3,7 @@ import { InformationData } from './InformationData';
 import styled from "@emotion/styled";
 import { Light, Active } from 'Theme';
 
-type Page = "about" | "projects";
+type Page = "home" | "about" | "projects";
 
 const UserInfo = styled("div")`
 	height: 100%;
@@ -82,9 +82,13 @@ const NavButton = styled("a")`
 `;
 
 export const UserInformation: React.FC  = () => {
-	const [page, setPage] = useState<Page>("about");
+	const [page, setPage] = useState<Page>("home");
 
 	const pages: Array<{name: Page, text: string}> = [{
+		name: "home",
+		text: "Home",
+	},
+	{
 		name: "about",
 		text: "Me",
 	},

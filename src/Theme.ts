@@ -1,5 +1,5 @@
 // Colours
-export const Dark = "#20222b";
+export const Dark = "hsl(229, 15%, 15%)";
 export const DarkGradient = "hsl(218, 42%, 13%)";
 export const DarkShadow = "hsl(218, 44%, 7%)";
 

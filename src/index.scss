@@ -20,3 +20,20 @@ code {
 ::-moz-selection {
   background: hsl(4, 100%, 69%); /* Gecko Browsers */
 }
+
+
+/* Animations */
+.ease-enter {
+  opacity: 0;
+}
+.ease-enter-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+.ease-exit {
+  opacity: 1;
+}
+.ease-exit-active {
+  opacity: 0;
+  transition: opacity 500ms ease-in;
+}
