@@ -82,7 +82,8 @@ const NavButton = styled("a")`
 `;
 
 export const UserInformation: React.FC  = () => {
-	const [page, setPage] = useState<Page>("home");
+	const anchor: Page = (window.location.hash?.substr(1) as Page);
+	const [page, setPage] = useState<Page>(anchor.length > 0 ? anchor : "home");
 
 	const pages: Array<{name: Page, text: string}> = [{
 		name: "home",
