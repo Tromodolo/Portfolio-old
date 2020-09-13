@@ -1,0 +1,38 @@
+.app-content {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+
+	position: relative;
+
+	background: var(--darkGray);
+	color: var(--light);
+}
+
+.header-content {
+	min-height: 305px;
+	width: 100%;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	background: var(--gray);
+	border-bottom: solid 1px var(--lightGreen);
+}
+
+.chen {
+	position: absolute;
+    height: 100px;
+    width: auto;
+    bottom: 0px;
+    left: 50px;
+	cursor: pointer;
+
+	// @media screen and (max-width: 768px){
+	// 	transform: rotate(180deg);
+
+	// 	top: 0px;
+	// 	bottom: initial;
+	// }
+}

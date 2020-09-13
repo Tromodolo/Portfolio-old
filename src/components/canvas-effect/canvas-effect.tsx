@@ -1,15 +1,5 @@
-import React from 'react';
-import styled from "@emotion/styled";
-
-const Canvas = styled("canvas")`
-	position: absolute;
-	min-width: 100vw;
-	height: 200px;
-
-	top: 0px;
-	left: 0px;
-	right: 0px;
-`;
+import React from "react";
+import "canvas-effect.scss";
 
 interface CanvasState {
 	canvasHeight: number;
@@ -55,7 +45,7 @@ export class CanvasEffect extends React.Component<{}, CanvasState> {
 			}
 
 			this.update = setInterval(this.drawFrame, 16);
-			window.addEventListener('resize', () => this.handleResize());
+			window.addEventListener("resize", () => this.handleResize());
 		}
 	}
 
@@ -143,7 +133,7 @@ export class CanvasEffect extends React.Component<{}, CanvasState> {
 
 	render(){
 		return (
-			<Canvas ref={(canvas) => this.canvas = canvas} height={this.state.canvasHeight} width={this.state.canvasWidth} />
+			<canvas className="circle-canvas" ref={(canvas) => this.canvas = canvas} height={this.state.canvasHeight} width={this.state.canvasWidth} />
 		);
 	}
 }

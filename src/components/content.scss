@@ -1,0 +1,90 @@
+main {
+	color: var(--lightGray);
+}
+.main-content {
+	margin-top: 75px;
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 150px;
+}
+
+.main-content-inner {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-around;
+	width: 1040px;
+	max-width: 80vw;
+}
+
+.segment {
+	width: 430px;
+}
+.segment-title {
+	font-size: 24px;
+	color: var(--green);
+
+	text-align: center;
+
+	&.projects-title {
+		margin-top: 50px;
+	}
+}
+.segment-content {
+	font-size: 14px;
+	text-align: left;
+	line-height: 20px;
+}
+
+.experience {
+	color: var(--green);
+}
+
+.project {
+	background: var(--gray);
+	width: 284px;
+	height: 140px;
+	padding: 16px;
+
+	box-sizing: border-box;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+	border-radius: 10px;
+
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+	justify-content: center;
+
+	text-decoration: none;
+	color: var(--lightGreen);
+
+	.project-metadata {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-right: 15px;
+
+		img {
+			width: 80px;
+			height: 80px;
+			border-radius: 100px;
+			margin-bottom: 8px;
+		}
+		.project-title {
+			font-weight: bold;
+			font-size: 14px;
+			color: var(--lightGreen);
+		}
+	}
+	.project-description {
+		font-size: 12px;
+		font-weight: 600;
+	}
+
+	&:hover {
+		position: relative;
+		bottom: 2px;
+		background: var(--grayPurple);
+	}
+}

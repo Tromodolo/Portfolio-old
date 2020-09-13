@@ -15,7 +15,7 @@
 		"max-classes-per-file": false,
 		"align": false,
 		"no-eval": false,
-		"quotemark": false,
+		"quotemark": [true, "double"],
 		"no-var-keyword": false,
 		"ordered-imports": false,
 		"variable-name": false,
@@ -23,7 +23,8 @@
 		"no-implicit-dependencies": false,
 		"no-submodule-imports": false,
 		"member-access": false,
-		"jsx-alignment": false
+		"jsx-alignment": false,
+		"jsx-no-multiline-js": false
 	},
     "rulesDirectory": []
 }
