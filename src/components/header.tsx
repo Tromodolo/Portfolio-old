@@ -1,10 +1,12 @@
 import React from "react";
 import "./header.scss";
 
-import Discord from "../assets/discord.svg"
-import Twitter from "../assets/twitter.svg"
-import Github from "../assets/github.svg"
-import Mail from "../assets/mail.svg"
+import {
+	FaDiscord,
+	FaTwitter,
+	FaGithub,
+	FaAt,
+} from "react-icons/fa";
 
 const Header: React.FC = () => {
 	return (
@@ -15,26 +17,26 @@ const Header: React.FC = () => {
 			<ul className="social-list">
 				<li className="social-media">
 					<a href="https://discord.gg/vevHucW">
-						<img src={Discord} alt="Discord Logo"/>
-						Discord Server
+						<FaDiscord size={40} />
+						<span>Discord Server</span>
 					</a>
 				</li>
 				<li className="social-media">
 					<a href="https://twitter.com/tromodolo">
-						<img src={Twitter} alt="Twitter Logo"/>
-						Twitter
+						<FaTwitter size={40} />
+						<span>Twitter</span>
 					</a>
 				</li>
 				<li className="social-media">
 					<a href="https://github.com/tromodolo">
-						<img src={Github} alt="Github Logo"/>
-						Github
+						<FaGithub size={40} />
+						<span>Github</span>
 					</a>
 				</li>
 				<li className="social-media">
 					<a href="mailto:Filip.ekstrom98@gmail.com">
-						<img src={Mail} alt="Letter Icon"/>
-						Contact Me
+						<FaAt size={40} />
+						<span>Contact Me</span>
 					</a>
 				</li>
 			</ul>

@@ -2,6 +2,8 @@ import React from "react";
 import "./content.scss";
 
 import Kurisu from "../assets/kurisu.png";
+import Tsuyu from "../assets/tsuyu.png";
+import PageIcon from "../assets/icon.png";
 
 const Content = () => {
 	const projects = [
@@ -11,6 +13,20 @@ const Content = () => {
 			imageAlt: "Drawn art of character",
 			url: "https://github.com/tromodolo/Kurisu",
 			description: "General use Discord chat bot, developed to expand on my Discord server.",
+		},
+		{
+			name: "Portfolio",
+			image: PageIcon,
+			imageAlt: "Icon for this website",
+			url: "https://github.com/tromodolo/portfolio",
+			description: "This.",
+		},
+		{
+			name: "tsuyu",
+			image: Tsuyu,
+			imageAlt: "Japanese text for 'tsuyu'",
+			url: "https://github.com/tromodolo/tsuyu",
+			description: "File-uploading service made using Rustlang and react",
 		},
 	];
 
@@ -47,14 +63,12 @@ const Content = () => {
 						<span className="segment-content">
 							<br />
 							<p>
-								My experience mostly with frontend, as that is where most of my work lies.
-								<br />
-								<span className="experience">Experience</span>: HTML, CSS, Javascript, Typescript, Angular, React.
+								<h4 className="experience">Frontend knowledge:</h4>
+								HTML, CSS, Javascript, Typescript, React, React-Native
 							</p>
 							<p>
-								However, my backend knowledge keeps growing all the time, as I get more responsibilities.
-								<br />
-								<span className="experience">Experience</span>: C#, ASP.Net Core, SQL, REST
+								<h4 className="experience">Backend knowledge:</h4>
+								C#, ASP.Net Core, SQL, REST
 							</p>
 						</span>
 					</article>

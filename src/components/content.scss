@@ -41,11 +41,20 @@ main {
 	color: var(--green);
 }
 
+.projects-list {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
 .project {
 	background: var(--gray);
-	width: 284px;
-	height: 140px;
-	padding: 16px;
+	width: 420px;
+	max-width: 90vw;
+	height: 200px;
+	padding: 32px;
+	margin: 16px;
 
 	box-sizing: border-box;
 	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
@@ -54,10 +63,10 @@ main {
 	display: flex;
 	flex-flow: row nowrap;
 	align-items: center;
-	justify-content: center;
+	justify-content: space-between;
 
 	text-decoration: none;
-	color: var(--lightGreen);
+	color: var(--light);
 
 	.project-metadata {
 		display: flex;
@@ -73,13 +82,14 @@ main {
 		}
 		.project-title {
 			font-weight: bold;
-			font-size: 14px;
-			color: var(--lightGreen);
+			font-size: 16px;
+			color: var(--light);
 		}
 	}
 	.project-description {
-		font-size: 12px;
-		font-weight: 600;
+		width: 70%;
+		font-size: 16px;
+		font-weight: bold;
 	}
 
 	&:hover {

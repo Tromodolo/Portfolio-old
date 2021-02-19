@@ -19,7 +19,7 @@ const App: React.FC = () => {
 				<Header />
 			</header>
 			<Content />
-			<img className="chen" src={honk} alt="Girl on bicycle honking" onClick={() => honkhonk()}/>
+			<img className="chen" src={honk} alt="Girl on bicycle honking" onClick={honkhonk}/>
 		</section>
 	);
 };
